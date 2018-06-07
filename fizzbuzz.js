@@ -10,8 +10,10 @@ const fizzbuzz = (x) => {
           	console.log(x);
         }
     };
-  const test = () => {
-		fizzbuzz(15);
+const main = () => {
+    for (var i = 1; i <= 100; i++) {
+		fizzbuzz(i);
+     }
   }
-  test();
+main();
    

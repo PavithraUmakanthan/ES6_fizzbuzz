@@ -8,19 +8,14 @@ const fizzbuzz = (number) => {
   }
   return number;
 }
-    
-const main = () => {
+module.exports = {
+  fizzbuzz: fizzbuzz
+};
+
+/* const main = () => {
   for (var i = 1; i <= 100; i++) {
     console.log(fizzbuzz(i));
   }
 }
-main();
-
-const test = () => {
-  const array = [4, 15, 20, 21];
-  for(const i of array) {  
-    fizzbuzz(array[i]); 
-  }
-}
-test();
+main(); */
 

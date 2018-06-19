@@ -53,3 +53,21 @@ const testnumber = () => {
 
 }
 testnumber();
+
+const errorNull = () => {
+  console.log(tools.fizzbuzz());
+
+}
+errorNull();
+
+const errorLargerNumber = () => {
+  console.log(tools.fizzbuzz(549));
+
+}
+errorLargerNumber();
+
+const errorString = () => {
+  console.log(tools.fizzbuzz('hello'));
+
+}
+errorString();

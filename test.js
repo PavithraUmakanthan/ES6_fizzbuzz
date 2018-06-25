@@ -9,7 +9,7 @@ test();
 */
 
 const assertEqual = (arg1, arg2, num) => {
-  if (arg1 == arg2) {
+  if (arg1 === arg2) {
     return `- passing: returned ${arg2} when called with the number ${num}`;
   }
   else {
@@ -52,7 +52,7 @@ testnumber();
 const errorNull = () => {
   const result = tools.fizzbuzz();
   const result2 = {status: 403, message: 'Sorry, you passed null value'};
-  if (result.message == result2.message) {
+  if (result.message === result2.message) {
     console.log(`- passing: returned ${result2.message}`);
   }
   else {
@@ -64,7 +64,7 @@ errorNull();
 const errorLargerNumber = () => {
   const result = tools.fizzbuzz(549);
   const result2 = {status: 404, message:'Sorry, the number is greater than 100'};
-  if (result.message == result2.message) {
+  if (result.message === result2.message) {
     console.log(`- passing: returned ${result2.message}`);
   }
   else {
@@ -76,7 +76,7 @@ errorLargerNumber();
 const errorString = () => {
   const result = tools.fizzbuzz('hello');
   const result2 = {status: 400, message: `Sorry, hello is not an integer`};
-  if (result.message == result2.message) {
+  if (result.message === result2.message) {
     console.log(`- passing: returned ${result2.message}`);
   }
   else {
@@ -88,7 +88,7 @@ errorString();
 const errorNullStatus = () => {
   const result = tools.fizzbuzz();
   const result2 = {status: 403, message: 'Sorry, you passed null value'};
-  if (result.status == result2.status) {
+  if (result.status === result2.status) {
     console.log(`- passing: returned ${result2.status} when called with undefined`);
   }
   else {
@@ -100,7 +100,7 @@ errorNullStatus();
 const errorLargerNumberStatus = () => {
   const result = tools.fizzbuzz(549);
   const result2 = {status: 404, message:'Sorry, the number is greater than 100'};
-  if (result.status == result2.status) {
+  if (result.status === result2.status) {
     console.log(`- passing: returned ${result2.status} when called with 549`);
   }
   else {
@@ -112,7 +112,7 @@ errorLargerNumberStatus();
 const errorStringStatus = () => {
   const result = tools.fizzbuzz('hello');
   const result2 = {status: 400, message: `Sorry, hello is not an integer`};
-  if (result.status == result2.status) {
+  if (result.status === result2.status) {
     console.log(`- passing: returned ${result2.status} when called with hello`);
   }
   else {

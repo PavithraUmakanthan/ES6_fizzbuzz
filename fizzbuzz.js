@@ -1,10 +1,17 @@
+const CustomError = require('./statusCodes.js');
+const ErrorString = require('./statusCodes.js');
+const ErrorLargeNumber = require('./statusCodes.js');
+
 const fizzbuzz = (number) => {
   if (typeof number === 'undefined'){
-    return ({status: 403, message:'Sorry, you passed null value'});
+    throw new CustomError('Sorry, you passed null value');
+    //return ({status: 403, message:'Sorry, you passed null value'});
   } else if (number > 100){
-    return ({status: 404, message:'Sorry, the number is greater than 100'});
+    throw new ErrorString('Sorry, the number is greater than 100');
+    //return ({status: 404, message:'Sorry, the number is greater than 100'});
   } else if (typeof number === 'string'){
-    return ({status: 400, message: `Sorry, ${number} is not an integer`});
+    throw new ErrorLargeNumber(`Sorry, ${number} is not an integer`);
+    //return ({status: 400, message: `Sorry, ${number} is not an integer`});
   } else if ((number % 3 === 0) && (number % 5 === 0)) {
       return 'fizzbuzz';
   } else if (number % 3 === 0) {

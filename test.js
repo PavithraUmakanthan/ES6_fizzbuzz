@@ -1,4 +1,5 @@
 const tools = require('./fizzbuzz.js');
+const CustomError = require('./statusCodes.js');
 /*const test = () => {
   const array = [4, 15, 20, 21];
   for(var i of array) {  
@@ -52,7 +53,8 @@ testnumber();
 const errorNull = () => {
   const result = tools.fizzbuzz();
   const result2 = {status: 403, message: 'Sorry, you passed null value'};
-  if (result.message === result2.message) {
+   //assert.CustomError(fizzbuzz, CustomError, "Sorry, you passed null value");
+  if (expect(fizzbuzz).to.throw(/Sorry, you passed null value/)){
     console.log(`- passing: returned ${result2.message}`);
   }
   else {
@@ -64,7 +66,7 @@ errorNull();
 const errorLargerNumber = () => {
   const result = tools.fizzbuzz(549);
   const result2 = {status: 404, message:'Sorry, the number is greater than 100'};
-  if (result.message === result2.message) {
+  if (expect(fizzbuzz).to.throw(/Sorry, the number is greater than 100/)) {
     console.log(`- passing: returned ${result2.message}`);
   }
   else {
@@ -76,7 +78,7 @@ errorLargerNumber();
 const errorString = () => {
   const result = tools.fizzbuzz('hello');
   const result2 = {status: 400, message: `Sorry, hello is not an integer`};
-  if (result.message === result2.message) {
+  if (expect(fizzbuzz).to.throw(/Sorry, hello is not an integer/)) {
     console.log(`- passing: returned ${result2.message}`);
   }
   else {

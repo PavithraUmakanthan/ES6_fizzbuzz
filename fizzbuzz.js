@@ -1,17 +1,12 @@
-const CustomError = require('./statusCodes.js');
-const ErrorString = require('./statusCodes.js');
-const ErrorLargeNumber = require('./statusCodes.js');
+const Error = require('./statusCodes.js');
 
 const fizzbuzz = (number) => {
   if (typeof number === 'undefined'){
-    throw new CustomError('Sorry, you passed null value');
-    //return ({status: 403, message:'Sorry, you passed null value'});
+    return (Error.NullValue);
   } else if (number > 100){
-    throw new ErrorString('Sorry, the number is greater than 100');
-    //return ({status: 404, message:'Sorry, the number is greater than 100'});
+    return (Error.ErrorString);
   } else if (typeof number === 'string'){
-    throw new ErrorLargeNumber(`Sorry, ${number} is not an integer`);
-    //return ({status: 400, message: `Sorry, ${number} is not an integer`});
+    return (Error.ErrorLargeNumber);
   } else if ((number % 3 === 0) && (number % 5 === 0)) {
       return 'fizzbuzz';
   } else if (number % 3 === 0) {
@@ -32,5 +27,6 @@ module.exports = {
   }
 }
 main(); */
+
 
 

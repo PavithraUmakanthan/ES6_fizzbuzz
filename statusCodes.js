@@ -1,21 +1,20 @@
-module.exports = class CustomError extends Error {
-  constructor(...args) {
-      super(...args);
-      this.name = this.constructor.name;
-      this.message = "Sorry, you passed null value";
-  }
+var NullValue = {
+  status: 403, 
+  message:'Sorry, you passed null value'
 };
 
-module.exports = class ErrorString extends Error {
-  constructor(...args) {                           
-      super(...args);
-      this.name = this.constructor.name;
-  }
+var ErrorString = {
+  status: 404,
+  message:'Sorry, the number is greater than 100'
 };
 
-module.exports = class ErrorLargeNumber extends Error {
-  constructor(...args) {
-      super(...args);
-      //this.name = this.constructor.name;
-  }
+var ErrorLargeNumber = {
+  status: 400, 
+  message: `Sorry, hello is not an integer`
+};
+
+module.exports = {
+  NullValue: NullValue,
+  ErrorString: ErrorString,
+  ErrorLargeNumber: ErrorLargeNumber
 };

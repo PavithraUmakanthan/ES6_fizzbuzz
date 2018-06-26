@@ -2,13 +2,13 @@ const statusCodes = require('./statusCodes.js');
 
 const fizzbuzz = (number) => {
   if (typeof number === 'undefined')
-    return statusCodes.errorundefined;
+    return statusCodes.errorUndefined;
 
   if (number > 100)
-    return statusCodes.errorlargenumber;
+    return statusCodes.errorLargeNumber;
 
   if (typeof number === 'string')
-    return statusCodes.errorstring;
+    return statusCodes.errorString;
 
   if ((number % 3 === 0) && (number % 5 === 0)) {
       return 'fizzbuzz';

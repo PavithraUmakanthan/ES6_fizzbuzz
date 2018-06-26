@@ -1,13 +1,5 @@
-const tools = require('./fizzbuzz.js');
-const CustomError = require('./statusCodes.js');
-/*const test = () => {
-  const array = [4, 15, 20, 21];
-  for(var i of array) {  
-    console.log(tools.fizzbuzz(i));
-  }
-}
-test();
-*/
+const fizzbuzz = require('./fizzbuzz.js');
+const statusCodes = require('./statusCodes.js');
 
 const assertEqual = (arg1, arg2, num) => {
   if (arg1 === arg2) {
@@ -19,7 +11,7 @@ const assertEqual = (arg1, arg2, num) => {
 }
 
 const testfizz = () => {
-    const result = tools.fizzbuzz(21);
+    const result = fizzbuzz(21);
     const result2 = "fizz";
     console.log(' Print fizz for numbers divisible by 3 '+ '\n'+
       assertEqual(result, result2, 21));
@@ -27,7 +19,7 @@ const testfizz = () => {
 testfizz();
 
 const testbuzz = () => {
-  const result = tools.fizzbuzz(20);
+  const result = fizzbuzz(20);
   const result2 = "buzz";
   console.log(' Print buzz for numbers divisible by 5 '+ '\n'+
     assertEqual(result, result2, 20));
@@ -35,7 +27,7 @@ const testbuzz = () => {
 testbuzz();
 
 const testfizzbuzz = () => {
-  const result = tools.fizzbuzz(15);
+  const result = fizzbuzz(15);
   const result2 = "fizzbuzz";
   console.log(' Print fizzbuzz for numbers divisible by 3 & 5 '+ '\n'+
     assertEqual(result, result2, 15));
@@ -43,7 +35,7 @@ const testfizzbuzz = () => {
 testfizzbuzz();
 
 const testnumber = () => {
-  const result = tools.fizzbuzz(4);
+  const result = fizzbuzz(4);
   const result2 = 4;
   console.log(' Print the number, if it is not divisible by 3 or 5 or both'+ '\n'+
     assertEqual(result, result2, 4));
@@ -51,8 +43,8 @@ const testnumber = () => {
 testnumber();
 
 const errorNull = () => {
-  const result = tools.fizzbuzz();
-  const result2 = {status: 403, message: 'Sorry, you passed null value'};
+  const result = fizzbuzz();
+  const result2 = statusCodes.NullValue;
   if (result.message === result2.message){
     console.log(`- passing: returned ${result2.message}`);
   }
@@ -63,8 +55,8 @@ const errorNull = () => {
 errorNull();
 
 const errorLargerNumber = () => {
-  const result = tools.fizzbuzz(549);
-  const result2 = {status: 404, message:'Sorry, the number is greater than 100'};
+  const result = fizzbuzz(549);
+  const result2 = statusCodes.ErrorLargeNumber;
   if (result.message === result2.message) {
     console.log(`- passing: returned ${result2.message}`);
   }
@@ -75,8 +67,8 @@ const errorLargerNumber = () => {
 errorLargerNumber();
 
 const errorString = () => {
-  const result = tools.fizzbuzz('hello');
-  const result2 = {status: 400, message: `Sorry, hello is not an integer`};
+  const result = fizzbuzz('hello');
+  const result2 = statusCodes.ErrorString;
   if (result.message === result2.message){
     console.log(`- passing: returned ${result2.message}`);
   }
@@ -87,8 +79,8 @@ const errorString = () => {
 errorString();
 
 const errorNullStatus = () => {
-  const result = tools.fizzbuzz();
-  const result2 = {status: 403, message: 'Sorry, you passed null value'};
+  const result = fizzbuzz();
+  const result2 = statusCodes.NullValue;
   if (result.status === result2.status) {
     console.log(`- passing: returned ${result2.status} when called with undefined`);
   }
@@ -99,8 +91,8 @@ const errorNullStatus = () => {
 errorNullStatus();
 
 const errorLargerNumberStatus = () => {
-  const result = tools.fizzbuzz(549);
-  const result2 = {status: 404, message:'Sorry, the number is greater than 100'};
+  const result = fizzbuzz(549);
+  const result2 = statusCodes.ErrorLargeNumber;
   if (result.status === result2.status) {
     console.log(`- passing: returned ${result2.status} when called with 549`);
   }
@@ -111,8 +103,8 @@ const errorLargerNumberStatus = () => {
 errorLargerNumberStatus();
 
 const errorStringStatus = () => {
-  const result = tools.fizzbuzz('hello');
-  const result2 = {status: 400, message: `Sorry, hello is not an integer`};
+  const result = fizzbuzz('hello');
+  const result2 = statusCodes.ErrorString;
   if (result.status === result2.status) {
     console.log(`- passing: returned ${result2.status} when called with hello`);
   }

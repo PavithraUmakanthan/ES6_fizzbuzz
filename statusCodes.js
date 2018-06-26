@@ -1,6 +1,6 @@
 var NullValue = {
   status: 403, 
-  message:'Sorry, you passed null value'
+  message:'Sorry, you have passed undefined'
 };
 
 var ErrorString = {
